@@ -1,13 +1,18 @@
 package de.hbrs.ia.erasmux.Entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.Data;
+import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-@Entity
-public class SalesMen {
+@Document(collection = "salesmen")
+public class SalesMan {
 
+    @Id
+    @GeneratedValue
+    private Integer sid;
     @NotEmpty
     private String firstName = "";
 
@@ -15,5 +20,6 @@ public class SalesMen {
     private String lastName = "";
     @NotEmpty
     private String email = "";
+
 
 }
